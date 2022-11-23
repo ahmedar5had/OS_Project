@@ -20,8 +20,7 @@ void cat(int fd)
   }
 }
 
-void 
-cat_n(int fd)
+void cat_n(int fd)
 {
   int n;
   int c=1;
@@ -52,7 +51,20 @@ int main(int argc, char *argv[])
     cat(0);
     exit(0);
   }
-
+if(strcmp(argv[1], "-n") == 0)
+  {
+        for (i=2;i<argc;i++)
+        {
+         if((fd = open(argv[i], 0)) < 0){
+      fprintf(2, "cat: unable to open %s\n", argv[i]);
+      exit(1);
+        }
+         cat_n(fd);
+	close(fd);
+	}
+}
+else
+{
   for(i = 1; i < argc; i++){
     if((fd = open(argv[i], 0)) < 0){
       fprintf(2, "cat: cannot open %s\n", argv[i]);
@@ -62,4 +74,6 @@ int main(int argc, char *argv[])
     close(fd);
   }
   exit(0);
+}
+return 0;
 }
