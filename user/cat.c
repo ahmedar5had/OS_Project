@@ -4,8 +4,7 @@
 
 char buf[512];
 
-void
-cat(int fd)
+void cat(int fd)
 {
   int n;
 
@@ -21,8 +20,31 @@ cat(int fd)
   }
 }
 
-int
-main(int argc, char *argv[])
+void 
+cat_n(int fd)
+{
+  int n;
+  int c=1;
+  printf("1\t");
+  while((n=read(fd,buf,sizeof(buf)))>0)
+{ 
+ for(int i=0;i<sizeof(buf);i++)
+{
+ if(buf[i] != '\n')
+{
+printf("%c",buf[i]);
+  }
+else
+{
+c++;
+printf("\n");
+printf("%d \t",c);
+
+}
+}
+}
+}
+int main(int argc, char *argv[])
 {
   int fd, i;
 
