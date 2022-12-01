@@ -6,6 +6,11 @@
 #include "spinlock.h"
 #include "proc.h"
 
+int sys_uniq(void){
+printf("Hello world\n");
+return 12;
+}
+
 uint64
 sys_exit(void)
 {
