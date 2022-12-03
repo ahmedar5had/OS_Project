@@ -6,9 +6,9 @@
 #include "spinlock.h"
 #include "proc.h"
 
-int sys_uniq(void){
-printf("Hello world\n");
-return 12;
+void sys_uniq(int){
+
+printf("Hello world");
 }
 
 uint64
