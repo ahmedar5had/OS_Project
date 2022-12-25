@@ -36,6 +36,7 @@ grep(char *pattern, int fd)
 int
 main(int argc, char *argv[])
 {
+pgaccess();
   int fd, i;
   char *pattern;
 
@@ -58,6 +59,7 @@ main(int argc, char *argv[])
     grep(pattern, fd);
     close(fd);
   }
+  pgaccess();
   exit(0);
 }
 

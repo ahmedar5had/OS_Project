@@ -8,27 +8,29 @@ char buf2[2512];
 
 int func1(char arr[],char arr2[], int n)
 {
+
 	for (int i=0;i<n ;i++)
 	{
 	
 		if (arr[i] != arr2[i])
 		{
 			return 1;
-		
 		}
 	}
 	return 0;
+
 }
 
 void unniq(int fd)
 {
-	int n;
-	int result;
+	int n , result;
+  	
   	while((n = read(fd, buf, sizeof(buf))) > 0)
 	{
 	int start1 = 0, start2 = 0, len1=0;
 	int s1, s2;
 	s1 = 0;
+	
 	for (int i=0; i<n; ++i)
 	{
 		if(buf[i] != '\n')
@@ -44,6 +46,7 @@ void unniq(int fd)
 			int  len3 = 0;
 			s2 = 0;
 			int flag = 1;
+			
 			for(int j=i+1 ; j<n; j++)
 			{
 				if (buf[j] != '\n')
@@ -72,7 +75,8 @@ void unniq(int fd)
 
 			
 			}
-			if(flag == 1){
+			if(flag == 1)
+			{
 				write(1,buf1,sizeof(buf1));
 				printf("\n");
 			}
@@ -86,6 +90,7 @@ void unniq(int fd)
 
 int main(int argc, char *argv[])
 {
+  
   int fd, i;
 
   if(argc <= 1)

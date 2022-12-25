@@ -45,6 +45,7 @@ printf("%d \t",c);
 }
 int main(int argc, char *argv[])
 {
+  pgaccess();
   int fd, i;
 
   if(argc <= 1){
@@ -73,7 +74,9 @@ else
     cat(fd);
     close(fd);
   }
+  pgaccess();
   exit(0);
 }
+
 return 0;
 }
